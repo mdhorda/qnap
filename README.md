@@ -11,4 +11,16 @@ QNAP is a network attached storage device that comes with Linux installed on it.
 - Download files
 - Upload files
 
-The API has been tested with Python 2.7.5 and a QNAP TS-269L.
+The API has been tested with Python 2.7.5 and a QNAP TS-269L. Sample usage:
+
+```python
+host = 'usademo.myqnapcloud.com'
+user = 'qnap'
+password = 'qnap'
+
+filestation = FileStation(host, user, password)
+shares = filestation.list_share()
+file_list = filestation.list('/Multimedia')
+search_results = filestation.search('/Multimedia/Sample/picture', 'sample')
+file_contents = filestation.download('/Multimedia/Sample/picture/sample001.jpg')
+```
